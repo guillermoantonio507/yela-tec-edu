@@ -1,0 +1,47 @@
+body {
+  font-family: 'Segoe UI', sans-serif;
+  background: #f4fcff;
+  color: #123;
+  margin: 0;
+  padding: 0;
+}
+header, footer {
+  background-color: #009688;
+  color: white;
+  text-align: center;
+  padding: 1em;
+}
+main {
+  padding: 1em;
+}
+button {
+  background-color: #ffeb3b;
+  color: #333;
+  border: none;
+  padding: 10px;
+  margin: 5px;
+  font-weight: bold;
+  cursor: pointer;
+  border-radius: 8px;
+}
+#mapaPanama {
+  height: 300px;
+  width: 100%;
+  margin-top: 1em;
+  border-radius: 12px;
+}
+.fichas {
+  margin-top: 2em;
+}
+.ficha {
+  background: white;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  padding: 1em;
+  margin-bottom: 1em;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+.ficha img {
+  max-width: 100%;
+  border-radius: 10px;
+}

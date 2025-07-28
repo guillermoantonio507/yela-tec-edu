@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>YELA TEC EDU</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css"/>
+</head>
+<body>
+  <header>
+    <h1>🟡 YELA TEC EDU</h1>
+    <p>Explora las aves de Panamá con la Reinita Amarilla y el Colibrí garganta de rubí</p>
+  </header>
+
+  <main>
+    <section class="guia">
+      <button onclick="hablarReinita()">🎤 Habla Reinita</button>
+      <button onclick="hablarColibri()">🎤 Habla Colibrí</button>
+    </section>
+
+    <section class="mapa">
+      <div id="mapaPanama"></div>
+    </section>
+
+    <section class="fichas">
+      <h2>Aves de Panamá</h2>
+      <div id="avesContainer"></div>
+    </section>
+  </main>
+
+  <footer>
+    <p>Con amor por la fauna panameña — YELA TEC EDU 2025 🐦</p>
+  </footer>
+
+  <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>
