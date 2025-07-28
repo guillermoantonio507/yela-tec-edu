@@ -1,45 +1,89 @@
-// Inicializar mapa con Leaflet
-const mapa = L.map('mapaPanama').setView([8.537981, -80.782127], 7);
-L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-  attribution: 'OpenStreetMap contributors'
-}).addTo(mapa);
+// Clave de acceso para modo docente
+const claveActual = "docente.YELA.TEC.2025";
 
-// Fichas de aves nativas y migratorias
+// Lista de aves nativas y migratorias (puedes expandir)
 const aves = [
-  {
-    nombre: "Reinita amarilla",
-    imagen: "https://upload.wikimedia.org/wikipedia/commons/thumb/3/34/Setophaga_petechia_%28male%29.jpg/320px-Setophaga_petechia_%28male%29.jpg",
-    info: "Ave nativa, muy activa, vista cerca de manglares y costas."
-  },
-  {
-    nombre: "Colibrí garganta de rubí",
-    imagen: "https://upload.wikimedia.org/wikipedia/commons/thumb/2/2c/Ruby-throated_Hummingbird_male_2.jpg/320px-Ruby-throated_Hummingbird_male_2.jpg",
-    info: "Ave migratoria, llega desde América del Norte durante el invierno."
-  }
+  { nombre: "Reinita amarilla", tipo: "Nativa", descripcion: "Ave pequeña y curiosa de plumaje amarillo intenso." },
+  { nombre: "Colibrí garganta de rubí", tipo: "Nativa", descripcion: "Ave rápida, de canto agudo y plumaje brillante." },
+  { nombre: "Playero aliblanco", tipo: "Migratoria", descripcion: "Llega a Panamá desde Norteamérica." },
+  { nombre: "Tángara azul", tipo: "Nativa", descripcion: "Hermosa ave azul eléctrico que habita bosques tropicales." }
 ];
 
-// Mostrar fichas
-const contenedor = document.getElementById('avesContainer');
-aves.forEach(ave => {
-  const div = document.createElement('div');
-  div.className = 'ficha';
-  div.innerHTML = `<h3>${ave.nombre}</h3><img src="${ave.imagen}" alt="${ave.nombre}"><p>${ave.info}</p>`;
-  contenedor.appendChild(div);
-});
-
-// Guías con voz IA
-function hablar(texto) {
-  const voz = new SpeechSynthesisUtterance(texto);
-  voz.lang = 'es-ES';
-  voz.pitch = 1.2;
-  voz.rate = 0.95;
-  speechSynthesis.speak(voz);
+// Mostrar fichas de aves
+function mostrarFichas() {
+  const contenedor = document.getElementById("contenedorFichas");
+  contenedor.innerHTML = "";
+  aves.forEach(ave => {
+    const ficha = document.createElement("div");
+    ficha.style.padding = "10px";
+    ficha.style.margin = "10px";
+    ficha.style.borderRadius = "10px";
+    ficha.style.backgroundColor = ave.tipo === "Nativa" ? "#e0ffe0" : "#fff0e0";
+    ficha.innerHTML = `<h4>🐦 ${ave.nombre}</h4><p><strong>Tipo:</strong> ${ave.tipo}</p><p>${ave.descripcion}</p>`;
+    contenedor.appendChild(ficha);
+  });
+  document.getElementById("fichasAves").classList.remove("oculto");
 }
 
-function hablarReinita() {
-  hablar("¡Hola! Soy la Reinita Amarilla. Te enseñaré todo sobre nuestras aves panameñas. ¿Listo para explorar?");
+// Activar sección de acceso docente
+function activarDocente() {
+  document.getElementById("loginDocente").classList.remove("oculto");
 }
 
-function hablarColibri() {
-  hablar("¡Hola! Soy el Colibrí de garganta rubí. Viajo mucho, pero siempre regreso a Panamá. Vamos a volar juntos por el conocimiento.");
+// Verificar clave del docente
+function verificarClave() {
+  const clave = document.getElementById("claveDocente").value;
+  if (clave === claveActual) {
+    alert("✅ Acceso docente concedido");
+    // Aquí puedes mostrar nuevas secciones o desbloquear opciones
+  } else {
+    alert("❌ Clave incorrecta");
+  }
+}
+
+// Interacción básica con IA de Reinita Amarilla
+function hablarConReinita() {
+  const respuesta = "¡Hola! Soy Reinita Amarilla. ¿Sabías que muchas aves migran miles de kilómetros cada año?";
+  document.getElementById("respuestaTexto").innerText = "🟨 Reinita: " + respuesta;
+}
+
+// Interacción básica con IA de Colibrí Garganta Rubí
+function hablarConColibri() {
+  const respuesta = "¡Hola! Soy el Colibrí Garganta de Rubí. ¡Puedo batir mis alas hasta 80 veces por segundo!";
+  document.getElementById("respuestaTexto").innerText = "🔴 Colibrí: " + respuesta;
+}
+
+// Reconocimiento de voz offline (Web Speech API)
+window.SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
+
+if ('SpeechRecognition' in window) {
+  const recognition = new SpeechRecognition();
+  recognition.lang = 'es-ES';
+  recognition.continuous = false;
+  recognition.interimResults = false;
+
+  // Reconocimiento por voz usando botones
+  document.addEventListener("keydown", function (e) {
+    if (e.key === "v") {
+      recognition.start();
+      document.getElementById("respuestaTexto").innerText = "🎤 Escuchando... habla ahora.";
+    }
+  });
+
+  recognition.onresult = function (event) {
+    const resultado = event.results[0][0].transcript.toLowerCase();
+    if (resultado.includes("reinita")) {
+      hablarConReinita();
+    } else if (resultado.includes("colibrí")) {
+      hablarConColibri();
+    } else {
+      document.getElementById("respuestaTexto").innerText = "🤖 No entendí. Intenta decir 'reinita' o 'colibrí'.";
+    }
+  };
+
+  recognition.onerror = function () {
+    document.getElementById("respuestaTexto").innerText = "⚠️ Error al reconocer voz. Verifica permisos.";
+  };
+} else {
+  document.getElementById("respuestaTexto").innerText = "⚠️ Reconocimiento de voz no disponible en este navegador.";
 }
