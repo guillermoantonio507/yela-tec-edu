@@ -1,47 +1,119 @@
+:root {
+  --color-fondo: #f0f8ff;
+  --color-texto: #1a1a1a;
+  --color-boton: #ffcc00;
+  --color-boton-hover: #ffaa00;
+  --color-docente: #ff4444;
+  --color-aves: #88ccee;
+  --color-reinita: #ffd700;
+  --color-colibri: #d1005d;
+  --sombra: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --color-fondo: #121212;
+    --color-texto: #f0f0f0;
+    --color-boton: #ffdd55;
+    --color-boton-hover: #ffaa00;
+    --color-docente: #ff6666;
+    --color-aves: #3399ff;
+  }
+}
+
 body {
-  font-family: 'Segoe UI', sans-serif;
-  background: #f4fcff;
-  color: #123;
   margin: 0;
-  padding: 0;
-}
-header, footer {
-  background-color: #009688;
-  color: white;
-  text-align: center;
-  padding: 1em;
-}
-main {
-  padding: 1em;
-}
-button {
-  background-color: #ffeb3b;
-  color: #333;
-  border: none;
+  font-family: 'Segoe UI', sans-serif;
+  background-color: var(--color-fondo);
+  color: var(--color-texto);
+  transition: background-color 0.4s, color 0.4s;
   padding: 10px;
-  margin: 5px;
-  font-weight: bold;
-  cursor: pointer;
-  border-radius: 8px;
 }
-#mapaPanama {
-  height: 300px;
-  width: 100%;
-  margin-top: 1em;
+
+header {
+  text-align: center;
+  padding: 20px 10px;
+  background: linear-gradient(45deg, #eafff5, #fefcea);
+  border-radius: 20px;
+  box-shadow: var(--sombra);
+  margin-bottom: 20px;
+}
+
+.titulo {
+  font-size: 2em;
+  color: var(--color-reinita);
+  text-shadow: 1px 1px 2px black;
+}
+
+.subtitulo {
+  font-size: 1.1em;
+  font-weight: 500;
+  margin-top: 10px;
+}
+
+button {
+  background-color: var(--color-boton);
+  border: none;
+  padding: 12px 20px;
+  margin: 10px;
   border-radius: 12px;
+  font-size: 1em;
+  cursor: pointer;
+  box-shadow: var(--sombra);
+  transition: background-color 0.3s;
 }
-.fichas {
-  margin-top: 2em;
+
+button:hover {
+  background-color: var(--color-boton-hover);
 }
-.ficha {
-  background: white;
-  border: 1px solid #ccc;
-  border-radius: 10px;
-  padding: 1em;
-  margin-bottom: 1em;
-  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+
+#menuPrincipal {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 10px;
 }
-.ficha img {
-  max-width: 100%;
-  border-radius: 10px;
+
+.oculto {
+  display: none;
+}
+
+#fichasAves {
+  margin-top: 30px;
+  padding: 15px;
+  background-color: var(--color-aves);
+  border-radius: 12px;
+  box-shadow: var(--sombra);
+}
+
+#loginDocente {
+  margin-top: 20px;
+  padding: 15px;
+  background-color: var(--color-docente);
+  border-radius: 12px;
+  box-shadow: var(--sombra);
+  color: white;
+}
+
+input[type="password"] {
+  padding: 10px;
+  border-radius: 8px;
+  border: none;
+  margin-top: 10px;
+  width: 80%;
+  font-size: 1em;
+}
+
+footer {
+  text-align: center;
+  margin-top: 40px;
+  font-size: 0.9em;
+  color: gray;
+}
+
+#respuestaIA {
+  margin-top: 30px;
+  text-align: center;
+  font-style: italic;
+  font-weight: bold;
 }
