@@ -1,103 +1,68 @@
-# 🌿 YELA TEC EDU – App Educativa Ambiental Offline
 
-**YELA TEC EDU** es una aplicación gratuita, educativa e interactiva que funciona completamente **offline**, diseñada para que niños y niñas aprendan sobre la fauna y flora de **Panamá**, especialmente sus **aves nativas y migratorias**, usando tecnología ética y accesible.
 
----
+🟥 YELA TEC EDU — Plataforma Educativa Interactiva Offline
+Versión: 1.0.0
+Licencia: MIT
 
-## 🧠 ¿Qué es YELA TEC EDU?
+🎯 Descripción del Proyecto
+YELA TEC EDU es una aplicación educativa gratuita, interactiva y completamente funcional sin conexión a internet, diseñada para niños, docentes y familias. El objetivo central es enseñar sobre las aves nativas y migratorias de Panamá mediante el uso ético de tecnología avanzada, accesible desde dispositivos móviles, tablets, laptops y PC.
+<br>
 
-Una herramienta educativa innovadora que integra:
-- **Guías con voz IA** que interactúan con los niños.
-- **Imágenes hiperrealistas** y sonidos reales de aves.
-- **Fichas educativas** interactivas.
-- **Mapas 3D animados** de rutas migratorias.
-- **Entrada por voz** (niños pueden hablar con las aves).
-- **Modo docente con clave secreta**.
-- Sin conexión a internet (funciona 100% offline).
+🦜 Guías Virtuales IA
+La app incluye dos personajes guiados por inteligencia artificial, con voz sintética realista generada por IA en español:
 
----
+🟡 La Reinita Amarilla: voz suave, maternal y curiosa.
 
-## 🐦 Guías Virtuales por Voz
+🔴 El Colibrí Garganta de Rubí: voz alegre, energética y sabia.
 
-- 🟡 **Reinita Amarilla**: Voz femenina, maternal, curiosa y suave.  
-- 🔴 **Colibrí Garganta de Rubí**: Voz masculina, sabia, enérgica y motivadora.
+Ambos interactúan con los niños, responden preguntas, explican migración, hábitats y cantos de aves, y ofrecen mensajes motivacionales ecológicos al final de cada sesión.
 
-Ambas voces están generadas con tecnología IA para una experiencia natural, empática y adaptada a la edad de los niños.
+🖼️ Diseño y Estética
+Diseño 3D hiperrealista de las letras “YELA TEC”:
 
----
+Color rojo rubí traslúcido.
 
-## 🔧 Instalación
+Efecto de circuitos integrados y microchips internos visibles.
 
-### Opción 1 – Desde GitHub (modo desarrollador)
-1. Clona el repositorio:
-   ```bash
-   git clone https://github.com/tuusuario/yela-tec-edu.git
-Abre la carpeta yela-tec-edu
+Contorno dorado metálico, con reflejos dinámicos e iluminación profesional.
 
-Abre el archivo index.html en tu navegador.
+Estilo cinematográfico, moderno y tecnológico.
 
-Opción 2 – Desde Vercel (ya desplegada)
-Accede directamente desde:
+La interfaz está optimizada con sombras suaves, efectos de profundidad 4K y navegación intuitiva incluso para niños que no saben leer.
 
-arduino
-Copiar
-Editar
-https://yela-tec-edu.vercel.app/
-Puedes descargar los archivos y usarlos offline en cualquier dispositivo (PC, laptop, tablet, Android, iOS).
+🧠 Funcionalidades Principales
+✅ Reconocimiento de voz (funcional sin internet).
 
-✨ Características principales
-✅ Funciona sin conexión a Internet
+✅ Interacción con guías por voz (IA).
 
-🎤 Reconocimiento de voz para niños que aún no escriben
+✅ Imágenes hiperrealistas de aves (nativas y migratorias).
 
-🐦 Fichas educativas y cantos reales de aves
+✅ Sonidos reales de canto de aves.
 
-📍 Mapas 3D de migración
+✅ Fichas educativas animadas.
 
-🎨 Generador de imágenes de aves creadas por los niños
+✅ “Cartas ecológicas”: mensajes de voz de los niños a las aves.
 
-👨‍🏫 Modo oculto para docentes con clave especial
+✅ Modo docente con acceso oculto mediante clave.
 
-📊 Seguimiento del progreso educativo
+✅ Conexión entre dispositivos para uso en el aula (modo grupo).
 
-💬 Mensajes motivacionales ecológicos
+✅ Seguimiento del progreso por sesión.
 
-📁 Estructura del proyecto
+✅ Modo offline garantizado en todas las funciones.
+
+🛠️ Estructura de Archivos
 bash
 Copiar
 Editar
-yela-tec-edu/
-│
-├── index.html        # Interfaz principal
-├── style.css         # Estilos visuales
-├── script.js         # Funcionalidad JS
-├── assets/           # Imágenes, sonidos y voces IA
-└── README.md         # Este archivo
-👨‍🏫 Público objetivo
-Niños y niñas de 4 a 12 años
-
-Docentes de primaria
-
-Padres, educadores y ONGs ambientales
-
-🔐 Modo Docente
-Accede al menú oculto con la clave especial:
-
-Copiar
-Editar
-docente.YELA.TEC.2025
-Desde allí podrás:
-
-Activar funciones educativas adicionales.
-
-Revisar progreso de estudiantes.
-
-Conectar múltiples dispositivos para clases en grupo.
-
-🌎 Créditos y Reconocimiento
-Creado con ❤️ y visión ecológica por Rubiela E.Dominguez A. y guillermo antonio .
-Apoyado por herramientas de IA para fomentar la educación ambiental responsable.
-
-📜 Licencia
-Este proyecto está bajo la Licencia MIT — libre para uso, modificación y distribución educativa.
-
+📁 yela-tec-edu
+├── index.html         → Página principal
+├── style.css          → Estilo personalizado
+├── script.js          → Lógica de interacción
+├── /assets            → Imágenes, audios, íconos
+├── /voices            → Audios IA de los guías
+├── /data              → Fichas educativas, sonidos
+├── LICENSE
+└── README.md
+🚀 Estado del Proyecto
+🟢 En desarrollo activo | ✅ Funcional offline | 🔜 Integración con app Android (.APK)
